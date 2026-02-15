@@ -1,9 +1,97 @@
 <!doctype html>
 <html>
 <head>
+	
 <meta charset="UTF-8">
 <title>2nd Brain Amuse-Bouche | Marilyn Loddi, 2026</title>
-</head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+	body{
+		margin:0;
+		background-image:url("https://i.ibb.co/8LdG8DNd/background-blur.jpg");
+		background-size: cover;
+		min-height: 100vh;
+		font-family: "Roboto", sans-serif;
+		
+
+	}
+	wrapper{
+		width:500px;
+		display:block;
+		margin:auto;
+		background-color:rgba(255,255,255,.5);
+	}
+	
+	header {
+    background-color: rgba(172,173,172,.5);
+	}
+	h1{ 
+		display:inline;
+	}
+	h2{
+		margin-left:30px; 
+		
+	}
+	.logo{
+		height:150px;	
+		width:auto;
+		vertical-align: middle;
+		margin-left:15px;
+				}	
+	.banner{
+		padding:15px;
+		margin-left: 0;
+		margin-right: 0;
+		background-color: rgba(255, 240, 220,.5);
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.recipe-intro{
+		padding:15px;
+		background-color: rgba(255, 240, 220,.5);
+	}
+	section{
+		margin:10px; 
+		width: 45%;
+		display:inline-block;
+		vertical-align:top;
+	}
+	.ingredients{
+		width:30%;
+	}
+	.instructions{
+		width:60%;
+	}
+	h3{
+		padding-left:25px;
+	}
+	p{
+		margin:30px;
+	}
+	h4{
+		margin-left:30px;
+		
+	}
+	
+	.video-section {
+		padding:15px;
+		margin-left: 0;
+		margin-right: 0;
+		background-color: rgba(255, 240, 220,.5);
+		width:100%;
+		box-sizing: border-box;
+	}
+	.videoframe{
+		padding:15px;
+		margin-left:15px;
+	}
+		
+	
+	</style>
+	</head>
 
 <body>
 	<wrapper>
@@ -12,10 +100,14 @@
 			<h1>The Enteric Kitchen</h1>
 		</header>
 		<main>
-			<img src="HF1-Still-ForCatalog copy 3.jpg"alt="food sculpture"class="banner"/>
+			<img src="HF1-Still-ForCatalog copy 3.jpg" alt="food sculpture" class="banner"/>
+			<div class="recipe-intro">
 			<h2> 2nd Brain Amuse-Bouche</h2>
-			<p>This recipe emerged from improvisation—a conversation with my gut, letting my second brain guide my hands. Each layer was placed by intuition, listening to the cravings of my microbiome rather than following steps. You can recreate this exact sculpture, or gather these materials and let your own enteric wisdom take over, building something entirely yours. Either way, you&rsquo;re feeding the microbes within and the creative impulse that lives in your gut.</p>
-			<section>
+			<p>This recipe emerged from improvisation—a conversation with my gut, letting my second brain guide my hands. Each layer was placed by intuition, listening to the cravings of my microbiome rather than following steps. You can recreate this exact sculpture, or gather these materials and let your own enteric wisdom take over, building something entirely yours. Either way, you&rsquo;re feeding the microbes within and the creative impulse that lives in your gut.
+			For inspiration watch  <a href="inspirational-video">this video.</a>
+			</p>
+			</div>
+			<section class="ingredients">
 				<h3>Ingredients</h3>
 				<ul>
 				<li>Tofu</li>
@@ -36,7 +128,7 @@
                 </ul>
 			</section>
 			
-			<section>
+			<section class="instructions">
 				<h3>Instructions</h3>
 				<ol>
 				<li>Slice tofu into a rectangular base and press fresh pumpkin seeds into the front side to create a studded pattern. Press dried rosemary into the left and right side, placing peppercorns inbetween the rosemary. </li>
@@ -50,10 +142,16 @@
 				<li>Slice grapes vertivally and blueberries horizontally and arrange them decoratively behind the base tofu in whatever pattern you desire.</li>
 				<li>Pour beet sauerkraut juice over the boiled egg letting it pour down to the tofu base.</li>
 				<li>Step back and adjust elements by intuition until the sculpture feels complete.</li>
-				</ol>
+				</ol>	
 			</section>
-			<h4>Inspirational video</h4>
-			<iframe width="400" height="225" src="https://www.youtube.com/embed/nJEBExmWRkU?si=l9ekExqnuXTRdK9a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+			<div class="video-section">
+			<section id="inspirational-video">
+			<h4>Inspirational Video</h4>
+			<iframe class= "videoframe" width="400" height="225" src="https://www.youtube.com/embed/nJEBExmWRkU?si=l9ekExqnuXTRdK9a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+			</iframe>
+		</section>
+		</div>
 		</main>
 		<footer>
 			<p>&copy; 2026, Marilyn Loddi.</p>
