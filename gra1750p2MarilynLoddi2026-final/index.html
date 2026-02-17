@@ -7,6 +7,9 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <style>
 	body{
 		margin:0;
@@ -18,20 +21,25 @@
 
 	}
 	wrapper{
-		width:500px;
+		width:770px;
 		display:block;
 		margin:auto;
-		background-color:rgba(255,255,255,.5);
+		background-color:rgba(172,173,172,.5);
+		padding-bottom: 10px;
+		
 	}
 	
 	header {
     background-color: rgba(172,173,172,.5);
+		
 	}
 	h1{ 
 		display:inline;
+		font-family: "Inter", sans-serif;
 	}
 	h2{
 		margin-left:30px; 
+		color: #348888;
 		
 	}
 	.logo{
@@ -42,11 +50,11 @@
 				}	
 	.banner{
 		padding:15px;
-		margin-left: 0;
-		margin-right: 0;
-		background-color: rgba(255, 240, 220,.5);
-		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 60%;
 		box-sizing: border-box;
+		display: block;
 	}
 	
 	.recipe-intro{
@@ -55,40 +63,55 @@
 	}
 	section{
 		margin:10px; 
+		margin-left: 17px;
 		width: 45%;
 		display:inline-block;
 		vertical-align:top;
 	}
+	
+	
+	
 	.ingredients{
 		width:30%;
+		background-color: rgba(255, 240, 220,.5);
+		border: 2px solid black;
+		
 	}
 	.instructions{
 		width:60%;
+		margin-left: 10px;
+		padding-right: 10px;
+		background-color: rgba(255, 240, 220,.5);
+		border: 2px solid black;
 	}
 	h3{
 		padding-left:25px;
+		color:#348888;
+		background-color: #f5c6a0;
+		width: fit-content;
 	}
 	p{
 		margin:30px;
 	}
 	h4{
 		margin-left:30px;
+		color:#348888;
 		
 	}
 	
 	.video-section {
-		padding:15px;
 		margin-left: 0;
 		margin-right: 0;
 		background-color: rgba(255, 240, 220,.5);
 		width:100%;
 		box-sizing: border-box;
+		text-align: center;
 	}
 	.videoframe{
-		padding:15px;
-		margin-left:15px;
+		padding:0;
+		margin-0;
 	}
-		
+	
 	
 	</style>
 	</head>
@@ -107,6 +130,7 @@
 			For inspiration watch  <a href="inspirational-video">this video.</a>
 			</p>
 			</div>
+			<div class="column wrapper">
 			<section class="ingredients">
 				<h3>Ingredients</h3>
 				<ul>
@@ -144,6 +168,7 @@
 				<li>Step back and adjust elements by intuition until the sculpture feels complete.</li>
 				</ol>	
 			</section>
+				</div>
 
 			<div class="video-section">
 			<section id="inspirational-video">
