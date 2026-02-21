@@ -11,17 +11,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <style>
+	*{
+		box-sizing: border-box;
+	}
 	body{
 		margin:0;
 		background-image:url("https://i.ibb.co/8LdG8DNd/background-blur.jpg");
 		background-size: cover;
+		background-attachment: fixed;
 		min-height: 100vh;
 		font-family: "Roboto", sans-serif;
 		
 
 	}
-	wrapper{
-		width:770px;
+	.wrapper{
+		width:1000px;
 		display:block;
 		margin:auto;
 		padding-bottom: 10px;
@@ -87,15 +91,14 @@
 	
 	
 	.ingredients{
-		width:30%;
+		width:28%;
 		background-color: rgba(255, 240, 220,.5);
 		border-radius: 10px;
 		
 	}
 	.instructions{
-		width:60%;
+		width:66%;
 		margin-left: 10px;
-		padding-right: 17px;
 		background-color: rgba(255, 240, 220,.5);
 		border-radius: 10px;
 	}
@@ -159,7 +162,7 @@
 	</head>
 
 <body>
-	<wrapper>
+	<div class="wrapper">
 		<header>
 			<img src="logo.PNG" alt="brain food" class="logo"/>
 			<h1>The Enteric Kitchen</h1>
@@ -224,6 +227,6 @@
 			<p>&copy; 2026, Marilyn Loddi.</p>
 <p>This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 		</footer>
-	</wrapper>
+	</div>
 </body>
 </html>
