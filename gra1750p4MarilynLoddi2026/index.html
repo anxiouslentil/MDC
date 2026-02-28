@@ -5,18 +5,24 @@
 <title>Marilyn Loddi's Open Studio Invitation | Marilyn Loddi 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+	
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+	
 
 	<style>
 		body{
 			margin:0;
 		}
-		wrapper{
-			width: 900px;
+		.wrapper{
+			width: 700px;
 			display:block;
 			margin: auto;
 			text-align:center;
-			border: 10px groove; 
+			padding: 20px;
+			border: 20px groove; 
+			background-color: rgba(0, 0, 0, 0.5)
+			
 		}
 		#myVideo {
 			  position: fixed;
@@ -25,10 +31,47 @@
 			  min-width: 100%; 
 			  min-height: 100%;
 			  z-index: -1;
+			  filter: blur(7px);
+			  top: 50%;
+			transform: translateY(-50%);
 		}
 		h1{
-    font-family: "Bungee Tint", sans-serif;
+    font-family: "Oswald", sans-serif;
+	font-weight: 700;
+	color: #FFD700;		
+			font-size: 55px;
 }
+		h2{
+			color: white;
+			font-family: "Lato", sans-serif;
+			font-weight: 700;
+			font-size: 30px;
+		}
+		
+		h3{
+			font-family: "Lato", sans-serif;
+			color: white;
+			
+		}
+		
+		h4{
+			font-family: "Lato", sans-serif;
+			color: white;
+		}
+		
+		p{
+			font-family: "Oswald", sans-serif;
+			color: white;
+			font-size: 20px;
+		}
+		section{
+			border-top: 3px solid;
+			padding: 10px 0px 20px 0px
+		}
+		
+		#rsvp {
+			color:  #FF6B35;
+		}
 	</style>
 </head>
 
@@ -37,16 +80,18 @@
   <source src="video3.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
-	<wrapper>
-	<h1>Marilyn's Open Studio</h1>
+	<div class="wrapper">
+	<h2>You're Invited To</h2>
 	<img src="openstudioimage.jpg" alt="Marilyn studio" width="500" height="auto">
+	<h1>Marilyn's Open Studio</h1>
+	<p>Come visit me at Studio 10!</p>
 	<section>
-	<h2>March 20, 2026</h2>
+		<h2>Friday March 20<sup>th</sup></h2>
 	<h3>6pm - 9pm</h3>	
 		</section>
 	<section>
-		<p>Come visit me at Studio 10</p>
-		<p> Free for all! <a href="https://www.eventbrite.com/e/march-open-studios-x-spf-grand-opening-tickets-1983088074815?aff=oddtdtcreator">RSVP HERE</a></p>
+		<p> Free for all! <a href="https://www.eventbrite.com/e/march-open-studios-x-spf-grand-opening-tickets-1983088074815?aff=oddtdtcreator" id="rsvp">RSVP HERE</a>
+</p>
 	</section>
 	<section>
 		<h2>At the Bakehouse Art Complex</h2>
@@ -54,6 +99,6 @@
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8983858908914!2d-80.2074590244074!3d25.806926206734584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b14b7ab3cf0f%3A0x669fca7a3c279287!2s561%20NW%2032nd%20St%2C%20Miami%2C%20FL%2033127!5e0!3m2!1sen!2sus!4v1772135444444!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		<h4>Free street parking is available along NW 32nd St between NW 5th and 6th Ave.</h4>
 	</section>
-</wrapper>		
+</div>		
 </body>
 </html>
