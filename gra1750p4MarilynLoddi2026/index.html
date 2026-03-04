@@ -11,11 +11,12 @@
 	
 
 	<style>
-		html, body {
+		body {
     margin: 0;
     padding: 0;
     height: 100%;
     overflow-x: hidden;
+			background-color: #1a1a1a;
 }
 
 		.wrapper{
@@ -131,6 +132,10 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 		.subtitle{
 			margin-top:0px;
 		}
+		
+		.free{
+    font-size: 32px;
+     }
 		section{
 			border-top: 8px solid #DCB20D;
 			padding: 0px 0px 8px 0px;
@@ -175,6 +180,7 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
         font-size: 20px;
     }
 
+
     img {
         width: 100%;
         height: auto;
@@ -189,15 +195,8 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 }
 
 		@media screen and (max-width: 480px) {
-   @media screen and (max-width: 480px) {
     #myVideo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: none;
+        display: none;
     }
 }
 
@@ -225,7 +224,7 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 	<h3>6pm - 9pm</h3>	
 		</section>
 	<section>
-		<p> Free for all! <a href="https://www.eventbrite.com/e/march-open-studios-x-spf-grand-opening-tickets-1983088074815?aff=oddtdtcreator" id="rsvp">RSVP HERE</a>
+		<p class="free"> Free for all!&nbsp;  <a href="https://www.eventbrite.com/e/march-open-studios-x-spf-grand-opening-tickets-1983088074815?aff=oddtdtcreator" id="rsvp">RSVP HERE</a>
 </p>
 	</section>
 	<section>
@@ -238,5 +237,6 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 	<footer>
 		<p>&copy; Marilyn Loddi, 2026. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 	</footer>
+	</div>
 </body>
 </html>
