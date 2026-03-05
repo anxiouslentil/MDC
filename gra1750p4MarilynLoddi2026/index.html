@@ -15,8 +15,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-x: hidden;
-			background-color: #1a1a1a;
+    
 }
 
 		.wrapper{
@@ -45,11 +44,6 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 			transform: translateY(-50%);
 		}
 		
-		#content {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-}
 
 		
 		audio {
@@ -161,42 +155,6 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 			font-size: 10px;   
 		}
 		
-		@media screen and (max-width: 768px) {
-    .wrapper {
-        width: 90%;
-        padding: 10px;
-        margin-bottom: 5px;
-    }
-
-    h1 {
-        font-size: 36px;
-    }
-
-    .specialheading {
-        font-size: 28px;
-    }
-
-    p {
-        font-size: 20px;
-    }
-
-
-    img {
-        width: 100%;
-        height: auto;
-    }
-
-    footer {
-        width: 90%;
-        margin: 0 auto;
-        padding: 10px;
-		margin-bottom: 5px;
-    }
-	
-			 #myVideo {
-        display: none; !important;
-    }
-}
 
 
 
@@ -206,8 +164,7 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 <body>
 	<video autoplay muted loop playsinline webkit-playsinline id="myVideo">
   <source src="https://res.cloudinary.com/daph0gcdu/video/upload/vc_h264/video3_fcecnx.mp4" type="video/mp4">
-</video>
-<div id="content">	
+</video>	
 <audio controls autoplay>
   <source src="forweb.wav" type="audio/wav">
 </audio>
@@ -235,6 +192,5 @@ box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
 	<footer>
 		<p>&copy; Marilyn Loddi, 2026. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 	</footer>
-	</div>
 </body>
 </html>
