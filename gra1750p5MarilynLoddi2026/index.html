@@ -9,8 +9,13 @@
 /* ── BASE ── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  background-color: #0a0806;
+
+ body {
+  background: 
+    url('images/noise.png'),
+    linear-gradient(to bottom, #3d1f08, #0a0806);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
   color: #f0e6d3;
   font-family: Georgia, serif;
   font-size: 16px;
@@ -18,7 +23,7 @@ body {
 }
 
 .wrapper {
-  max-width: 430px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -63,12 +68,11 @@ section {
 /* ── HEADER ── */
 header {
   padding: 1.25rem 0;
-  border-bottom: 1px solid #1e1a14;
+  border-bottom: none;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
+  display: block;
   align-items: center;
 }
 
@@ -79,7 +83,7 @@ nav {
 
 nav ul {
   list-style: none;
-  display: flex;
+  display: block;
   gap: 1.25rem;
 }
 
@@ -95,10 +99,14 @@ nav ul a {
       background-position: center;
       height: 400px;
       position: relative;
+	  border-radius: 8px;
+	  padding: 0;
+	  border-bottom: none;
     }
 
       .banner-overlay {
       background-color: rgba(0, 0, 0, 0.55);
+	  border-radius: 8px;
       position: absolute;
       top: 0;
       left: 0;
@@ -173,7 +181,6 @@ footer {
 footer p {
   font-size: 0.75rem;
 }
-```
 
   </style>
 </head>
@@ -201,7 +208,7 @@ footer p {
 <section class="banner">
   <div class="banner-overlay">
     <h1>Bread after dark.</h1>
-    <small>Open nightly · Until midnight</small>
+    <h3>Open nightly · Until midnight</h3>
     <a href="#menu" class="btn">View Menu</a>
   </div>
 </section>
@@ -295,6 +302,7 @@ footer p {
 
   <footer>
     <p>Bread after dark. · Open nightly · Until midnight · Calientito</p>
+	  <p>&copy; 2026, Marilyn Loddi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
   </footer>
 
 </div><!-- end .wrapper -->
