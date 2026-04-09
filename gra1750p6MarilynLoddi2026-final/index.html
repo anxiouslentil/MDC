@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Calientito — A Toast Lounge</title>
+  <style>
+
+/* ── BASE ── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+ body {
+  background: 
+    url('images/noise.png'),
+    linear-gradient(to bottom, #3d1f08, #0a0806);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  color: #f0e6d3;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem;}
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+	  
+	  .afterdark{
+		  text-align: left;
+	  }
+
+p {
+  color: #7a6a58;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #c8872a;
+  text-decoration: none;
+}
+
+small {
+  font-size: 0.75rem;
+  color: #7a6a58;
+}
+
+blockquote {
+  border-left: 2px solid #c8872a;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #f0e6d3;
+}
+
+section {
+  padding: 2.5rem 0;
+  border-bottom: 3px solid #c8872a;
+}
+
+/* ── HEADER ── */
+header {
+  background: url('images/noise.png'), #0a0806;
+  padding: 1rem 1.5rem;
+  border-bottom: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+
+
+
+
+nav {
+  display: block;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+
+.nav-logo {
+  font-size: 1.1rem;
+  color: #f0e6d3;
+}
+
+nav ul {
+  list-style: none;
+  display: block;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+
+nav a {
+  font-size: 0.75rem;
+  color: #7a6a58;
+  border: 1px solid #c8872a;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+	  nav a{
+		  display: block;
+  margin-bottom: 1rem;		  
+}
+
+	  nav a:hover {
+		  background-color: #c8872a;
+		  color:black;
+	  }
+	  
+	 .social-list a:hover {
+  color: #f0e6d3;
+  text-decoration: underline;
+  cursor: url('images/toast-cursor.png'), auto;
+}
+
+
+	   /* - Hide nav links by default, show only hamburger icon */
+.topnav a { display: none; }
+.topnav a.icon { 
+  display: inline-block;
+  color: #c8872a;
+  font-size: 1.2rem;
+}
+
+/* When hamburger is clicked show all links */
+.topnav.responsive a { display: block; }
+.topnav.responsive a.icon { display: block; }
+
+/* ── BANNER ── */
+  .banner {
+      background-image: url('images/banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      position: relative;
+	  border-radius: 8px;
+	  padding: 0;
+	  border-bottom: none;
+	  margin-top: 110px; 
+    }
+
+      .banner-overlay {
+      background-color: rgba(0, 0, 0, 0.55);
+	  border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem 1.5rem;
+    }
+
+
+.banner h1 {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.banner small {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #c8872a;
+  color: #0a0806;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+	  
+.btn:hover {
+  background-color: #e8b86d;
+  color: #0a0806;
+  box-shadow: 0 0 10px 5px rgba(200, 135, 42, 0.7);
+  cursor: url('images/toast-cursor.png'), auto;
+}
+
+
+
+/* ── CARDS ── */
+.menu-card,
+.bread-card,
+.happening-card {
+  background-color: #2e1f0e;
+  border: 2px solid #4a3018;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.menu-card p,
+.bread-card p,
+.happening-card p {
+  color: #c8a882;
+}
+
+.menu-card h3,
+.bread-card h3,
+.happening-card h3 {
+  color: #f0e6d3;
+}
+
+/* ── IMAGES ── */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.75rem;
+}
+	  
+
+  @media (min-width: 800px) {
+  .topnav a { display: inline-block; }
+  .topnav a.icon { display: none; }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding-left: 0;
+  }
+
+  /* Wider wrapper for desktop */
+  .wrapper {
+    max-width: 1100px;
+  }
+
+  /* Menu cards side by side */
+  #menu .cards-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  #menu .cards-row .menu-card {
+    flex: 1;
+  }
+
+  /* Featured bread and happenings side by side */
+  .bottom-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .bottom-row .featured,
+  .bottom-row #happenings {
+    flex: 1;
+  }
+
+.cards-row .menu-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-card img {
+  height: 200px;
+  object-fit: cover;
+}
+	  
+.cards-row .menu-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-row .menu-card .btn {
+  margin-top: auto;
+}
+
+
+
+  }
+		  
+
+  </style>
+</head>
+<body>
+	
+	<!-- HEADER -->
+
+  <header>
+	 <h1> Calientito</h1> 
+    <nav class="topnav" id="myTopnav">
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#happenings">Events</a>
+  <a href="#location">Visit</a>
+</nav>
+
+  </header>
+	
+<div class="wrapper">
+
+ 
+
+  <main>
+
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner-overlay">
+    <h1 class="afterdark">Bread after dark.</h1>
+    <h3>Open nightly · Until midnight</h3>
+    <a href="#menu" class="btn">View Menu</a>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <img src="images/about.jpg" alt="Inside TBD toast lounge">
+  <h2>We're a toastaurant. No, we're not sorry.</h2>
+  <p>Toast gets a bad rap. People call it a fallback, a last resort, the thing you make when there's nothing else. We respectfully disagree.</p>
+  <p>At Calientito, we source our loaves from local bakers who lose sleep over fermentation times. Our spreads are made in-house. Our toppings are chosen like a playlist — every combination intentional, nothing accidental.</p>
+  <p>We open at 4pm because mornings are overrated. We close at midnight because some things are worth staying up for.</p>
+  <blockquote>
+    "Good bread, the right heat, and something worth spreading — that's not a compromise. That's a philosophy."
+  </blockquote>
+  <a href="#" class="btn">Learn More</a>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <h2>The Menu</h2>
+  <p>Toast done right. Curated or crafted — everything served until midnight.</p>
+<div class="cards-row">
+  <div class="menu-card">
+    <img src="images/menu-premade.jpg" alt="Premade toasts">
+    <h3>Premade Toasts</h3>
+    <p>Twelve signatures. Each one deliberate. Order as is — no substitutions, no regrets.</p>
+    <a href="#" class="btn">View More</a>
+  </div>
+
+  <div class="menu-card">
+    <img src="images/menu-custom.jpg" alt="Build your own toast">
+    <h3>Build Your Own</h3>
+    <p>Choose your base, your spread, your toppings. The canvas is yours.</p>
+    <a href="#" class="btn">View More</a>
+  </div>
+
+  <div class="menu-card">
+    <img src="images/menu-drinks.jpg" alt="Drinks and pairings">
+    <h3>Drinks &amp; Pairings</h3>
+    <p>Every drink on our menu is designed to complement the toast.</p>
+    <a href="#" class="btn">View More</a>
+  </div>
+	
+	</div>
+</section>
+<div class="bottom-row">
+<!-- FEATURED BREAD -->
+<section class="featured">
+  <h2>Featured Bread</h2>
+  <div class="bread-card">
+    <img src="images/featured-bread.jpg" alt="Artisan bread loaf">
+    <small>Sourced from Sea Wolf Bakers · Seattle, WA</small>
+    <h3>Featured Loaf</h3>
+    <p>An Ezekiel-style bread made from six organically sprouted grains and legumes. Dense, nutty, and deeply nourishing — the kind of bread that makes everything you put on top taste better.</p>
+    <a href="#" class="btn">Learn More</a>
+  </div>
+</section>
+
+<!-- HAPPENINGS -->
+<section id="happenings">
+  <h2>Happenings</h2>
+  <div class="happening-card">
+    <img src="images/happenings.jpg" alt="Toast speed dating event">
+	 <small>Sat, Mar 29 · 8pm · Limited spots</small>
+    <h3>Toast Speed Dating</h3>
+    <p>Six rounds. Six toasts. Six strangers. Meet someone new over a shared plate — no apps, no algorithms, just bread and good conversation. Singles welcome, curiosity required.</p>
+    <a href="#" class="btn">Upcoming Events</a>
+  </div>
+</section>
+
+	</div>
+
+<!-- HOURS & LOCATION -->
+<section id="location">
+  <h2>Hours &amp; Location</h2>
+
+  <p>Mon – Sat: 4pm – Midnight</p>
+  <p>Sunday: 2pm – 10pm</p>
+
+  <p>142 NW 2nd Ave, Miami FL 33128</p>
+  <p>(305) 555 – 0192</p>
+
+  <ul class="social-list">
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">TikTok</a></li>
+    <li><a href="#">Newsletter</a></li>
+  </ul>
+</section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>Bread after dark. · Open nightly · Until midnight · Calientito</p>
+	  <p>&copy; 2026, Marilyn Loddi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+  </footer>
+
+</div><!-- end .wrapper -->
+	
+<script>
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+x.className += " responsive";
+} else {
+x.className = "topnav";
+}
+}
+</script>	
+</body>
+</html>
