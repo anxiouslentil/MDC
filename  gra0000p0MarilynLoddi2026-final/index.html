@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Des Papaya</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,900;1,900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+   /* ============================================
+   CSS Reset
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   Body
+   ============================================ */
+body {
+  background-color: #b8b5ae;
+  color: #1a1612;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+	  /* ============================================
+   Hero Container
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #b8b5ae;
+}
+	  /* ============================================
+   Layer 1 — Background (bridge + texture)
+   ============================================ */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+	  /* ============================================
+   Layer 2 — Red brush stroke
+   ============================================ */
+.hero-brushstroke {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url('images/hero-brushstroke.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.3, 1),
+              opacity 0.5s ease;
+}
+
+	  /* ============================================
+   Layer 4 — Figure (inside hero)
+   ============================================ */
+.hero-figure {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background-image: url('images/hero-figure.png');
+  background-size: contain;
+  background-position: right top;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* ============================================
+   Layer 3 — Title + subtitle
+   ============================================ */
+.hero-text {
+  position: absolute;
+  top: 54%;
+  left: 4%;
+  transform: translateY(-50%);
+  z-index: 3;
+  max-width: 60%;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero-title {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(40px, 7.3vw, 105px);
+  color: #000000;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: clamp(16px, 1.6vw, 24px);
+  color: #e8e0d0;
+  line-height: 1.4;
+  text-align: center;
+}
+/* ============================================
+   Layer 5 — Navigation (inside hero for now)
+   ============================================ */
+.hero-nav {
+  position: absolute;
+  top: 4%;
+  left: 3%;
+  z-index: 10;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.nav-logo {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 26px);
+  color: #1a1612;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  color: #7a1410;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: opacity 0.25s ease;
+  text-shadow: 
+  0 0 3px rgba(184, 181, 174, 1),
+  0 0 6px rgba(184, 181, 174, 1),
+  0 0 10px rgba(184, 181, 174, 0.8);
+}
+
+
+
+.nav-links a:hover {
+  opacity: 0.55;
+}
+	  
+/* ============================================
+   Hero Tagline — "A Hush Fell Production"
+   ============================================ */
+.hero-tagline {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  z-index: 10;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: clamp(10px, 0.85vw, 12px);
+  color:#7a1410;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 4px rgba(184, 181, 174, 0.8),
+	   0 0 4px rgba(184, 181, 174, 0.8),
+	  0 0 4px rgba(184, 181, 174, 0.8);
+  pointer-events: none;
+}
+
+
+/* ============================================
+   Hover Reveal — stroke slides in, text fades up
+   ============================================ */
+.hero:hover .hero-brushstroke {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hero:hover .hero-text {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+
+/* ============================================
+   Sections (synopsis, cast, trailer)
+   ============================================ */
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: 8vh 6vw 8vh 6vw;
+  background-image: url('images/paper-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+
+.section-title {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 72px);
+  color: #7a1410;
+  margin-bottom: 3vh;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.section-title::after {
+  content: '';
+  flex-grow: 1;
+  height: 4px;
+  background-color: #7a1410;
+  min-width: 100px;
+}
+
+#cast .section-title {
+  margin-bottom: 8vh;
+}
+
+
+.section-content {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: clamp(15px, 1.1vw, 18px);
+  color: #1a1612;
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+#cast {
+  background-image: url('images/paper-bg-flipped.jpg');
+}
+	  
+/* ============================================
+   Cast Layout — Lead on top, 4 below in grid
+   ============================================ */
+.cast-lead {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vh;
+}
+
+.cast-lead .cast-card {
+  width: clamp(260px, 28vw, 380px);
+}
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+}
+
+.cast-grid .cast-card {
+  width: 100%;
+}
+
+	  /* ============================================
+   Cast Card — base styles (used by both lead & grid)
+   ============================================ */
+.cast-card {
+  width: clamp(220px, 22vw, 320px);
+}
+
+.cast-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 1.5vh;
+}
+
+.cast-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.photo-actor {
+  opacity: 0;
+}
+
+.cast-card:hover .photo-character {
+  opacity: 0;
+}
+
+.cast-card:hover .photo-actor {
+  opacity: 1;
+}
+
+/* Cast info (names + role) */
+.cast-info {
+  position: relative;
+  min-height: 80px;
+}
+
+.cast-name-character,
+.cast-name-actor {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(18px, 1.6vw, 24px);
+  color: #1a1612;
+  line-height: 1.1;
+  transition: opacity 0.4s ease;
+}
+
+.cast-name-actor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.cast-card:hover .cast-name-character {
+  opacity: 0;
+}
+
+.cast-card:hover .cast-name-actor {
+  opacity: 1;
+}
+
+.cast-role {
+  margin-top: 0.5vh;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: clamp(10px, 0.85vw, 12px);
+  color: #7a1410;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: opacity 0.4s ease;
+}
+
+.cast-card:hover .cast-role {
+  opacity: 0;
+}
+
+	  /* ============================================
+   Synopsis Body
+   ============================================ */
+.synopsis-body {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: clamp(15px, 1.2vw, 19px);
+  color: #1a1612;
+  line-height: 1.7;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.synopsis-body p {
+  margin-bottom: 4vh;
+}
+
+.synopsis-body p:last-child {
+  margin-bottom: 0;
+}
+
+	  
+.synopsis-tagline {
+  font-size: clamp(22px, 2.2vw, 36px);
+  color: #7a1410;
+  margin-top: 4vh;
+}
+
+ #synopsis .section-title {
+  margin-bottom: 6vh;
+}
+
+	  #synopsis {
+  padding-bottom: 1vh;
+}
+
+	  /* ============================================
+   Trailer Section
+   ============================================ */
+.trailer-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4vh;
+  padding-right: 8%;
+}
+
+.trailer-video {
+  width: 75%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  z-index: 2;
+}
+
+.trailer-video iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.trailer-figure {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 22%;
+  aspect-ratio: 2 / 3;
+  background-image: url('images/trailer-figure.png');
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+	  
+section#trailer {
+	min-height:auto;
+}
+
+
+
+.footer-bottom {
+  border-top: 1px solid rgba(184, 181, 174, 0.2);
+  padding-top: 3vh;
+}
+
+.footer-copyright {
+  font-size: clamp(11px, 0.85vw, 13px);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(184, 181, 174, 0.5);
+  margin-bottom: 2vh;
+}
+
+.footer-disclaimer {
+  font-size: clamp(9px, 0.7vw, 11px);
+  line-height: 1.5;
+  color: rgba(184, 181, 174, 0.35);
+}
+
+	  /* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background-color: #1a1612;
+  color: #b8b5ae;
+  padding: 4vh 6vw 4vh 6vw;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  margin-bottom: 6vh;
+}
+
+.footer-heading {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: clamp(14px, 1.1vw, 18px);
+  color: #7a1410;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: 3vh;
+}
+
+/* Credits list */
+.credits-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 0;
+  border-bottom: 1px solid rgba(184, 181, 174, 0.15);
+  font-size: clamp(13px, 0.95vw, 15px);
+}
+
+.credit-role {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(184, 181, 174, 0.7);
+}
+
+.credit-name {
+  color: #b8b5ae;
+}
+
+/* Contact column */
+.contact-line {
+  font-size: clamp(13px, 0.95vw, 15px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(184, 181, 174, 0.7);
+  margin-bottom: 1vh;
+}
+
+.contact-email {
+  font-size: clamp(16px, 1.3vw, 20px);
+  color: #b8b5ae;
+  margin-bottom: 4vh;
+}
+
+.contact-spacer {
+  margin-top: 2vh;
+}
+
+	  /* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+/* Tablets and phones */
+@media (max-width: 768px) {
+
+  /* Hero adjustments */
+  .hero-title {
+    font-size: clamp(28px, 8vw, 60px);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(13px, 2.5vw, 18px);
+  }
+
+  .hero-nav {
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: clamp(9px, 2vw, 11px);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-tagline {
+    font-size: clamp(8px, 1.6vw, 10px);
+    letter-spacing: 0.2em;
+  }
+
+  /* Section padding tightens up */
+  .section {
+    padding: 6vh 5vw;
+  }
+
+  /* Section titles get smaller */
+  .section-title {
+    font-size: clamp(32px, 8vw, 48px);
+    gap: 16px;
+  }
+
+  /* Cast: 4-col grid becomes 2x2 */
+  .cast-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4vw;
+  }
+
+  /* Cast cards take full column width */
+  .cast-grid .cast-card,
+  .cast-lead .cast-card {
+    width: 100%;
+  }
+
+  /* Lead card a bit smaller on mobile */
+  .cast-lead .cast-card {
+    max-width: 280px;
+  }
+
+  /* Cast names scale down */
+  .cast-name-character,
+  .cast-name-actor {
+    font-size: clamp(15px, 3vw, 18px);
+  }
+
+  /* Trailer: hide the figure, video goes full width */
+  .trailer-figure {
+    display: none;
+  }
+
+  .trailer-stage {
+    padding-right: 0;
+  }
+
+  .trailer-video {
+    width: 100%;
+  }
+
+  /* Footer: stack columns vertically */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 5vh;
+  }
+
+  /* Synopsis tagline scales down */
+  .synopsis-tagline {
+    font-size: clamp(18px, 4vw, 26px);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  /* Hero title needs even more room on tiny screens */
+  .hero-title {
+    font-size: clamp(24px, 9vw, 40px);
+  }
+
+  /* Section title smaller still */
+  .section-title {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+
+  /* Footer disclaimer needs to be readable */
+  .footer-disclaimer {
+    font-size: 10px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <section id="hero" class="hero">
+
+    <div class="hero-bg"></div>
+
+    <div class="hero-brushstroke"></div>
+	  
+	<div class="hero-figure"></div>
+  
+
+    <div class="hero-text">
+      <h1 class="hero-title">No Des Papaya</h1>
+      <p class="hero-subtitle">She takes it to heart,<br>with guts to spare!</p>
+    </div>
+    <nav class="hero-nav">
+      <a href="#hero" class="nav-logo">NDP</a>
+      <ul class="nav-links">
+        <li><a href="#synopsis">synopsis</a></li>
+        <li><a href="#cast">cast</a></li>
+        <li><a href="#trailer">trailer</a></li>
+      </ul>
+    </nav>
+	<p class="hero-tagline">A Hush Fell Production</p>
+
+
+  </section>
+
+<section id="synopsis" class="section">
+  <h2 class="section-title">Synopsis</h2>
+
+  <div class="synopsis-body">
+    <p>San Francisco Detective Valentina Vargas has spent fifteen years rebuilding herself from the inside out. The contaminated meat that killed her family, packaged, shipped, and sold by NutriAxis Corporation took her hair and rewired her body. It also left her with something in return: a palate so precise she can break a single bite down to its ingredients, and identify a toxin at parts per million.</p>
+
+    <p>NutriAxis has been headquartered twelve miles from the Mission District her whole life. Nobody has ever answered for what they did to her family. Nobody has even tried.</p>
+
+    <p>Until a NutriAxis whistleblower turns up dead on her caseload, ruled accidental, close it fast, don't ask questions.</p>
+
+    <p class="synopsis-tagline">Valentina asks questions for a living.</p>
+  </div>
+</section>
+
+  <section id="cast" class="section">
+  <h2 class="section-title">Cast</h2>
+
+  <!-- Lead card, on top -->
+  <div class="cast-lead">
+    <div class="cast-card">
+      <div class="cast-photo">
+        <img src="images/cast-1-character.jpg" alt="" class="photo-character">
+        <img src="images/cast-1-actor.jpg" alt="" class="photo-actor">
+      </div>
+      <div class="cast-info">
+        <p class="cast-name-character">Valentina Vargas</p>
+        <p class="cast-name-actor">Marilyn Loddi</p>
+        <p class="cast-role">SFPD Homicide Detective</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supporting cast, in a grid below -->
+  <div class="cast-grid">
+
+    <div class="cast-card">
+      <div class="cast-photo">
+        <img src="images/cast-2-character.jpg" alt="" class="photo-character">
+        <img src="images/cast-2-actor.jpg" alt="" class="photo-actor">
+      </div>
+      <div class="cast-info">
+        <p class="cast-name-character">Malcolm Thorne</p>
+        <p class="cast-name-actor">G.W. Jorgensen Jr.</p>
+        <p class="cast-role">CEO, NutriAxis Corporation</p>
+      </div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-photo">
+        <img src="images/cast-3-character.jpg" alt="" class="photo-character">
+        <img src="images/cast-3-actor.jpg" alt="" class="photo-actor">
+      </div>
+      <div class="cast-info">
+        <p class="cast-name-character">Capt. Walter Hale</p>
+        <p class="cast-name-actor">Harlan Pike</p>
+        <p class="cast-role">SFPD Homicide Division</p>
+      </div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-photo">
+        <img src="images/cast-4-character.jpg" alt="" class="photo-character">
+        <img src="images/cast-4-actor.jpg" alt="" class="photo-actor">
+      </div>
+      <div class="cast-info">
+        <p class="cast-name-character">Det. Naïma Joseph</p>
+        <p class="cast-name-actor">Odessa Ruthven</p>
+        <p class="cast-role">SFPD Homicide, Partner</p>
+      </div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-photo">
+        <img src="images/cast-5-character.jpg" alt="" class="photo-character">
+        <img src="images/cast-5-actor.jpg" alt="" class="photo-actor">
+      </div>
+      <div class="cast-info">
+        <p class="cast-name-character">Daniel Okonkwo</p>
+        <p class="cast-name-actor">Dashiell Crane</p>
+        <p class="cast-role">NutriAxis Whistleblower</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="trailer" class="section">
+  <h2 class="section-title">Trailer</h2>
+
+  <div class="trailer-stage">
+    <div class="trailer-video">
+      <iframe 
+        src="https://player.vimeo.com/video/YOUR_VIDEO_ID" 
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="trailer-figure"></div>
+  </div>
+</section>
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-credits">
+      <h3 class="footer-heading">Credits</h3>
+      <ul class="credits-list">
+        <li><span class="credit-role">Directed by</span><span class="credit-name">Alan Smithee</span></li>
+        <li><span class="credit-role">Written by</span><span class="credit-name">Eric Arthur Blair </span></li>
+        <li><span class="credit-role">Music</span><span class="credit-name">Zero Lot Neighbors</span></li>
+
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h3 class="footer-heading">Contact</h3>
+      <p class="contact-line">For inquiries:</p>
+      <p class="contact-email">hello@hushfell.com</p>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copyright">&copy; 2026 A Hush Fell Production. All rights reserved.</p>
+    <p class="footer-disclaimer">&copy; 2026, Marilyn Loddi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+  </div>
+
+</footer>
+
+
+	
+
+	
+
+</body>
+</html>
