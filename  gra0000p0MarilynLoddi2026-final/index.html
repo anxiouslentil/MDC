@@ -542,20 +542,36 @@ section#trailer {
   margin-top: 2vh;
 }
 
-	  /* ============================================
+	/* ============================================
    MOBILE RESPONSIVE
    ============================================ */
 
 /* Tablets and phones */
 @media (max-width: 768px) {
 
+  /* Show brushstroke and title by default on mobile (no hover) */
+  .hero-brushstroke {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .hero-text {
+    opacity: 1;
+  }
+
   /* Hero adjustments */
+  .hero-text {
+    max-width: 50%;
+    top: 50%;
+  }
+
   .hero-title {
-    font-size: clamp(28px, 8vw, 60px);
+    font-size: clamp(20px, 5.5vw, 40px);
+    margin-bottom: 8px;
   }
 
   .hero-subtitle {
-    font-size: clamp(13px, 2.5vw, 18px);
+    font-size: clamp(10px, 2vw, 14px);
   }
 
   .hero-nav {
@@ -583,7 +599,7 @@ section#trailer {
 
   /* Section titles get smaller */
   .section-title {
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(26px, 6vw, 40px);
     gap: 16px;
   }
 
@@ -640,12 +656,16 @@ section#trailer {
 
   /* Hero title needs even more room on tiny screens */
   .hero-title {
-    font-size: clamp(24px, 9vw, 40px);
+    font-size: clamp(18px, 6vw, 28px);
+  }
+
+  .hero-text {
+    max-width: 48%;
   }
 
   /* Section title smaller still */
   .section-title {
-    font-size: clamp(28px, 9vw, 40px);
+    font-size: clamp(22px, 7vw, 32px);
   }
 
   /* Footer disclaimer needs to be readable */
@@ -653,7 +673,6 @@ section#trailer {
     font-size: 10px;
   }
 }
-
 
 
   </style>
