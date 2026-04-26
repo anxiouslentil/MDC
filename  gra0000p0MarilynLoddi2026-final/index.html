@@ -412,8 +412,8 @@ body {
   padding-bottom: 1vh;
 }
 
-	  /* ============================================
-   Trailer Section
+	/* ============================================
+   Trailer — Thumbnail with Play Button
    ============================================ */
 .trailer-stage {
   position: relative;
@@ -421,40 +421,118 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 4vh;
-  padding-right: 8%;
+ 
 }
 
-.trailer-video {
-  width: 75%;
-  max-width: 1000px;
-  aspect-ratio: 16 / 9;
+.trailer-thumbnail {
   position: relative;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
   z-index: 2;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
 }
 
-.trailer-video iframe {
+.thumbnail-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/trailer-thumbnail.jpg');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.trailer-thumbnail:hover .thumbnail-image {
+  transform: scale(1.03);
+}
+
+.play-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(122, 20, 16, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.trailer-thumbnail:hover .play-button {
+  transform: scale(1.1);
+  background-color: rgba(122, 20, 16, 1);
+}
+
+
+.play-icon {
+  color: #b8b5ae;
+  font-size: 32px;
+  margin-left: 6px;
+}
+
+
+section#trailer {
+  min-height: auto;
+}
+
+/* ============================================
+   Lightbox
+   ============================================ */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 12, 10, 0.95);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+
+.lightbox-content iframe {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.trailer-figure {
+.lightbox-close {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 22%;
-  aspect-ratio: 2 / 3;
-  background-image: url('images/trailer-figure.png');
-  background-size: contain;
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  z-index: 1;
-  pointer-events: none;
+  top: 24px;
+  right: 32px;
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 48px;
+  color: #b8b5ae;
+  line-height: 1;
+  z-index: 1000;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
-	  
-section#trailer {
-	min-height:auto;
+
+.lightbox-close:hover {
+  color: #7a1410;
+  transform: scale(1.1);
 }
+
 
 
 
@@ -626,31 +704,7 @@ section#trailer {
     font-size: clamp(15px, 3vw, 18px);
   }
 
-  /* Trailer: hide the figure, video goes full width */
-  .trailer-figure {
-    display: none;
-  }
-
-  .trailer-stage {
-    padding-right: 0;
-  }
-
-  .trailer-video {
-    width: 100%;
-  }
-
-  /* Footer: stack columns vertically */
-  .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 5vh;
-  }
-
-  /* Synopsis tagline scales down */
-  .synopsis-tagline {
-    font-size: clamp(18px, 4vw, 26px);
-  }
-}
-
+ 
 /* Small phones */
 @media (max-width: 480px) {
 
@@ -795,18 +849,28 @@ section#trailer {
   <h2 class="section-title">Trailer</h2>
 
   <div class="trailer-stage">
-    <div class="trailer-video">
-      <iframe 
-        src="https://player.vimeo.com/video/YOUR_VIDEO_ID" 
-        frameborder="0" 
-        allow="autoplay; fullscreen; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <div class="trailer-figure"></div>
+    <a href="#trailer-lightbox" class="trailer-thumbnail">
+      <div class="thumbnail-image"></div>
+      <div class="play-button">
+        <span class="play-icon">▶</span>
+      </div>
+    </a>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div id="trailer-lightbox" class="lightbox">
+  <a href="#" class="lightbox-close" aria-label="Close trailer">×</a>
+  <div class="lightbox-content">
+    <iframe 
+      src="https://player.vimeo.com/video/1186683531?title=0&byline=0&portrait=0&color=7a1410"
+      frameborder="0" 
+      allow="autoplay; fullscreen; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
 
 <footer class="footer">
 
@@ -817,7 +881,7 @@ section#trailer {
       <ul class="credits-list">
         <li><span class="credit-role">Directed by</span><span class="credit-name">Alan Smithee</span></li>
         <li><span class="credit-role">Written by</span><span class="credit-name">Eric Arthur Blair </span></li>
-        <li><span class="credit-role">Music</span><span class="credit-name">Zero Lot Neighbors</span></li>
+        <li><span class="credit-role">Music by</span><span class="credit-name">Zero Lot Neighbors</span></li>
 
       </ul>
     </div>
